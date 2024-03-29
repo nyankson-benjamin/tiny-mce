@@ -26,7 +26,7 @@ onMounted(() => {
     plugins: 'save casechange autoresize tableofcontents insertdatetime accordion pagebreak preview fullscreen anchor autolink codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
     toolbar: 'save undo redo | blocks fontfamily fontsize| bold italic underline strikethrough backcolor casechange | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | saveButton removeformat',
     tinycomments_mode: 'embedded',
-    file_picker_callback: function (callback:any, value, meta:any) {
+    file_picker_callback: function (callback:any, value:any, meta:any) {
       if (meta.filetype == 'image') {
         let input = document.getElementById('my-file') as HTMLElement;
         if (input) {
@@ -57,7 +57,7 @@ onMounted(() => {
       { value: 'First.Name', title: 'First Name' },
       { value: 'Email', title: 'Email' },
     ],
-    ai_request: (request, respondWith:any) => {
+    ai_request: (request:any, respondWith:any) => {
       respondWith.string(() => Promise.reject(new Error('See docs to implement AI Assistant')))
     },
     content_css: '//www.tiny.cloud/css/codepen.min.css'
