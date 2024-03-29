@@ -26,7 +26,7 @@ onMounted(() => {
     plugins: 'save casechange autoresize tableofcontents insertdatetime accordion pagebreak preview fullscreen anchor autolink codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
     toolbar: 'save undo redo | blocks fontfamily fontsize| bold italic underline strikethrough backcolor casechange | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | saveButton removeformat',
     tinycomments_mode: 'embedded',
-    file_picker_callback: function (callback, value, meta) {
+    file_picker_callback: function (callback:any, value, meta:any) {
       if (meta.filetype == 'image') {
         let input = document.getElementById('my-file') as HTMLElement;
         if (input) {
@@ -44,26 +44,21 @@ onMounted(() => {
         }
       }
     },
-    setup: function (editor) {
+    setup: function (editor:any) {
       editor.on('init', function (val: { type: string }) {
         if (val.type === "init") {
-          // loadingEditor.value = false;
           console.log("init");
         }
       });
     },
     tinycomments_author: 'Author name',
-    save_onsavecallback: (val, val2) => {
-      console.log("save", val);
-      console.log("saved");
-    },
     save_enablewhendirty: false,
 
     mergetags_list: [
       { value: 'First.Name', title: 'First Name' },
       { value: 'Email', title: 'Email' },
     ],
-    ai_request: (request, respondWith) => {
+    ai_request: (request, respondWith:any) => {
       respondWith.string(() => Promise.reject(new Error('See docs to implement AI Assistant')))
     },
     content_css: '//www.tiny.cloud/css/codepen.min.css'
