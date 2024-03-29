@@ -47,7 +47,6 @@ onMounted(() => {
     setup: function (editor:any) {
       editor.on('init', function (val: { type: string }) {
         if (val.type === "init") {
-          console.log("init");
         }
       });
     },
