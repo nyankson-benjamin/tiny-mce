@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted } from 'vue';
-import DatePicker from "@/components/DatePicker.vue"
+// import DatePicker from "@/components/DatePicker.vue"
 
 declare const tinymce: any;
 
@@ -28,11 +28,11 @@ onMounted(() => {
     tinycomments_mode: 'embedded',
     file_picker_callback: function (callback:any, value:any, meta:any) {
       if (meta.filetype == 'image') {
-        let input = document.getElementById('my-file') as HTMLElement;
+        let input = document.getElementById('my-file') as HTMLInputElement;
         if (input) {
           input.click();
           input.onchange = function () {
-            let file = input.files[0];
+            let file = input.files![0];
             let reader = new FileReader();
             reader.onload = function (e) {
               callback((e.target as FileReader).result, {
